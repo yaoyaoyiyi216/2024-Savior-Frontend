@@ -63,7 +63,7 @@ function Home() {
               'borderRadius':'2em',
               'marginLeft':'3.2em',
               'textAlign':'center'
-            }}>{totalEnergy}</View>
+            }}>{allEnergy}</View>
         </View>
         <View className='remainingenergy'>
           <Image
