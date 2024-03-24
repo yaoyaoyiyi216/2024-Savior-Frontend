@@ -1,0 +1,9 @@
+{
+  "miniprogramRoot": "./",
+  "projectname": "savior",
+  "appid": "testAppId",
+  "setting": {
+    "es6": false,
+    "minified": false
+  }
+}

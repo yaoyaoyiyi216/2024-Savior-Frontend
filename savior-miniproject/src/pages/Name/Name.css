@@ -1,0 +1,24 @@
+.body {
+  position: relative;
+  background: url(@/assets/pictures/name/background.png) no-repeat;
+  background-size: contain;
+  width: 80vw;
+  margin-left: 20vw;
+  height: 100vh;
+}
+.textinput {
+  position: absolute;
+  top: 150px;
+  left: 180px;
+  background: #fff;
+  width: 150px;
+  height: 25px;
+border-radius: 7rpx 7rpx 7rpx 7rpx;
+}
+.arrow {
+  position: absolute;
+  top: 250px;
+  left: 350px;
+  width: 20px;
+  height: 20px;
+}

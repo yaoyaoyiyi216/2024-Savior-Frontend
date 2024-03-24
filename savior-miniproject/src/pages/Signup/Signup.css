@@ -1,0 +1,130 @@
+.body {
+  background-image: url(@/assets/pictures/signup/background.png);
+  width: 100vw;
+  height: 100vh;
+  font-family: 'Segoe UI';
+}
+
+.email {
+  position: absolute;
+  left: 208px;
+  top: 179px;
+  width: 250px;
+  height: 25px;
+  background-color: #fff;
+  box-shadow: 0px 2px 3px 1px rgba(0, 0, 0, 0.16), inset 0px 2px 3px 1px rgba(0, 0, 0, 0.16);
+  border-radius: 7px 7px 7px 7px;
+color:lightgrey
+
+
+}
+
+.verificationCode {
+  position: absolute;
+  left: 208px;
+  top: 220px;
+  width: 120px;
+  height: 25px;
+  background-color: #fff;
+  box-shadow: 0px 2px 3px 1px rgba(0, 0, 0, 0.16), inset 0px 2px 3px 1px rgba(0, 0, 0, 0.16);
+  border-radius: 7px 7px 7px 7px;
+
+}
+
+.getverificationCode {
+  position: absolute;
+  left: 370px;
+  top: 220px;
+  width: 80px;
+  height: 25px;
+  box-shadow: 0px 2px 3px 1px rgba(0, 0, 0, 0.16), inset 0px 2px 3px 1px rgba(0, 0, 0, 0.16);
+  border-radius: 7px 7px 7px 7px;
+  font-size: small;
+}
+
+.signup {
+  position: absolute;
+  left: 390px;
+  top: 260px;
+  width: 60px;
+  height: 20px;
+  font-size: 9px;
+  box-shadow: 0px 2px 3px 1px rgba(0, 0, 0, 0.16), inset 0px 2px 3px 1px rgba(0, 0, 0, 0.16);
+  border-radius: 7px 7px 7px 7px;
+
+}
+
+.privacytitle {
+  position: absolute;
+  top: 292px;
+  left: 270px;
+  width: 170px;
+  font-size: 9px;
+  background-color: #bbe2ab;
+}
+
+.privacytitle2 {
+  color: blue;
+  position: absolute;
+  top: 292px;
+  left: 380px;
+  width: 170px;
+  font-size: 9px;
+  background-color: #bbe2ab;
+}
+
+.checkbox {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: 289px;
+  left: 250px;
+  size: .1cm;
+}
+
+.privacytext {
+  z-index: 1;
+  position: absolute;
+  top: 70px;
+  left: 270px;
+  width: 160px;
+  height: 200px;
+  background-color: #fff;
+
+}
+
+.closeprivacytext {
+  z-index: 1;
+  position: absolute;
+  left: 400px;
+  top: 70px;
+  width: 10px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+  background-color: #fff;
+
+}
+
+.header {
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: block;
+  font-size: larger;
+  font-family: 'Segoe UI';
+
+}
+
+.content {
+  display: block;
+  position: absolute;
+  top: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 150px;
+  
+
+}

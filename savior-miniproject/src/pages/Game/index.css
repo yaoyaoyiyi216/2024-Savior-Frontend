@@ -1,0 +1,182 @@
+.card-game-wrapper {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  padding: 20rpx 80rpx;
+  box-sizing: border-box;
+  background: url(@/assets/pictures/game/game-bg.png) no-repeat center center;
+  background-size: 100% 100%;
+}
+/* 左侧 */
+.card-game-wrapper .game-left {
+  flex-shrink: 0;
+}
+.game-left .btn-group {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+  margin-right: 84rpx;
+}
+.btn-group .timer-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40rpx;
+}
+.timer-box .timer-icon {
+  width: 66rpx;
+  height: 84rpx;
+  background: url(@/assets/pictures/game/countdown.png) no-repeat center center;
+  background-size: 100% 100%;
+}
+.timer-box .countdown {
+  font-size: 22rpx;
+  color: #000;
+  margin-top: 10rpx;
+}
+/* 右侧 */
+.card-game-wrapper .game-right {
+  flex: 1;
+}
+.game-right .card-group {
+  display: flex;
+  flex-wrap: wrap;
+  width: calc((52rpx * 4) + (20rpx * 4));
+}
+.card-group .card-item {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: all .5s;
+  width: 52rpx;
+  height: 76rpx;
+  border-radius: 8rpx;
+  /* border: 1rpx solid #707070; */
+  overflow: hidden;
+  transform: rotateY(0deg);
+  margin: 0 20rpx 15rpx 0;
+}
+/* .card-group .card-item:nth-child(4n) {
+  margin-right: 0;
+} */
+.card-item.flipped {
+  transform: rotateY(180deg);
+}
+.card-item .front,
+.card-item .back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #BBE2AB;
+  display: block;
+}
+.card-item .back {
+  transform: rotateY(180deg);
+}
+.card-item .front image,
+.card-item .back image {
+  width: 100%;
+  height: 100%;
+}
+/* 弹窗 */
+/* 成功背景 */
+.result-modal.success .modal-content {
+  width: 233rpx;
+  height: 240rpx;
+  background: #F4FFCF;
+  box-shadow: 0rpx 3rpx 5rpx 1rpx rgba(0,0,0,0.16), inset 0rpx 3rpx 5rpx 1rpx rgba(0,0,0,0.16);
+  border-radius: 12rpx;
+}
+/* 失败背景 */
+.result-modal.fail .modal-content {
+  width: 233rpx;
+  height: 181rpx;
+  background: #FFFBC0;
+  box-shadow: 0rpx 3rpx 5rpx 1rpx rgba(0,0,0,0.16), inset 0rpx 3rpx 5rpx 1rpx rgba(0,0,0,0.16);
+  border-radius: 12rpx 12rpx 12rpx 12rpx;
+ }
+.result-modal .modal-header {
+  padding-top: 30rpx;
+  box-sizing: border-box;
+  color: #000;
+  font-size: 22rpx;
+}
+.result-modal .modal-main {
+  margin-top: 50rpx;
+}
+/* 成功内容 */
+.modal-main .success-box {
+  position: relative;
+}
+.success-box .tip {
+  font-size: 14rpx;
+  color: #6C6C6C;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.success-box .success-icon1 {
+  position: absolute;
+  width: 43rpx;
+  height: 45rpx;
+  left: 0;
+  top: -50rpx;
+  background: url(@/assets/pictures/game/success-icon1.png) no-repeat center center;
+  background-size: 100% 100%;
+}
+.success-box .success-icon2 {
+  position: absolute;
+  width: 43rpx;
+  height: 45rpx;
+  right: 0;
+  bottom: -50rpx;
+  background: url(@/assets/pictures/game/success-icon2.png) no-repeat center center;
+  background-size: 100% 100%;
+}
+.success-box .energy-box {
+  margin-top: 10rpx;
+  height: 30rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.energy-box .energy-icon {
+  width: 30rpx;
+  height: 30rpx;
+  background: url(@/assets/pictures/continent/energy.png) no-repeat center center;
+  background-size: 100% 100%;
+}
+.energy-box .energy-count {
+  margin-left: 10rpx;
+  color: #A0D199;
+  font-size: 22rpx;
+}
+.result-modal.success .modal-header {
+  color: #D97272;
+}
+.result-modal.success .footer-btn {
+  width: 73rpx;
+  height: 25rpx;
+  background: #B5F0AE;
+  box-shadow: 0rpx 3rpx 5rpx 1rpx rgba(0,0,0,0.16), inset 0rpx 3rpx 5rpx 1rpx rgba(0,0,0,0.16);
+  opacity: 0.5;
+  color: #707070;
+  font-size: 12rpx;
+ }
+/* 失败内容 */
+.modal-main .fail-box {
+  font-size: 14rpx;
+  color: #6C6C6C;
+  position: relative;
+}
+.fail-box .fail-icon {
+  width: 34rpx;
+  height: 39rpx;
+  position: absolute;
+  right: 15rpx;
+  bottom: -20rpx;
+  background: url(@/assets/pictures/game/fail-icon.png) no-repeat center center;
+  background-size: 100% 100%;
+}
+

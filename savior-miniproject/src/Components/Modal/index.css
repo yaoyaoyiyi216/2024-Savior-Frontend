@@ -1,0 +1,66 @@
+.modal-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255, 255, 255, .5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3000;
+}
+.modal-wrapper .modal-content {
+  position: relative;
+  width: 380rpx;
+  min-height: 150rpx;
+  height: max-content;
+  margin-bottom: 50rpx;
+  border-radius: 20rpx;
+  background-color: #BBE2AB;
+  display: flex;
+  flex-direction: column;
+  padding: 0 20rpx 20rpx;
+  box-sizing: border-box;
+}
+.modal-content .close-icon {
+  position: absolute;
+  top: 15rpx;
+  right: 20rpx;
+  cursor: pointer;
+  width: 20rpx;
+  height: 20rpx;
+  background: url(@/assets/pictures/submenu-close-icon.png) no-repeat center center;
+  background-size: 100% 100%;
+}
+.modal-content .modal-header {
+  flex-shrink: 0;
+  height: 20rpx;
+  text-align: center;
+  font-weight: 400;
+  font-size: 27rpx;
+  color: #707070;
+}
+.modal-content .modal-main {
+  flex: 1;
+  width: 100%;
+}
+.modal-content .modal-footer {
+  flex-shrink: 0;
+  height: 37rpx;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-footer .footer-btn {
+  height: 37rpx;
+  width: 100rpx;
+  border-radius: 21rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #DCF0D4;
+  box-shadow: 0rpx 3rpx 5rpx 1rpx rgba(0,0,0,0.16), inset 0rpx 3rpx 5rpx 1rpx rgba(0,0,0,0.16);
+}
