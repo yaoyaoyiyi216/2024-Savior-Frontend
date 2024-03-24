@@ -1,0 +1,88 @@
+.sub-menu-wrapper {
+  width: 80rpx;
+  height: 95%;
+  border-top-left-radius: 50rpx;
+  border-bottom-left-radius: 50rpx;
+  background-color: #BBE2AB;
+  overflow: hidden;
+  transition: all .3s;
+  position: fixed;
+  right: -100%;
+  bottom: 0;
+  z-index: 2000;
+}
+.sub-menu-wrapper.show {
+  right: 0;
+}
+.sub-menu-wrapper.hide {
+  right: -100%;
+}
+.sub-menu-group {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.sub-menu-group .close-icon {
+  position: absolute;
+  top: 8rpx;
+  right: 6rpx;
+  cursor: pointer;
+  width: 15rpx;
+  height: 15rpx;
+  background: url(@/assets/pictures/submenu-close-icon.png) no-repeat center center;
+  background-size: 100% 100%;
+}
+.sub-menu-group .sub-menu-item {
+  width: 35rpx;
+  height: 54rpx;
+}
+.sub-menu-item image {
+  width: 100%;
+  height: 100%;
+}
+
+.loginout-modal .modal-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Segoe UI, Segoe UI;
+    font-weight: 400;
+    font-size: 27rpx;
+    color: #707070;
+}
+
+.reference-modal .modal-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+.reference-modal .modal-main .reference-list {
+  width: 100%;
+  height: 155rpx;
+  background: #FFFFFF;
+  border-radius: 10rpx 10rpx 10rpx 10rpx;
+  overflow: auto;
+  padding: 10rpx;
+  box-sizing: border-box;
+}
+
+.feedback-modal .modal-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.feedback-modal .modal-main input {
+  width: 284rpx;
+  height: 44rpx;
+  background: #FFFFFF;
+  border-radius: 10rpx;
+  padding: 0 15rpx;
+}
+.feedback-modal .modal-footer .footer-btn {
+  background: #DCF0D4;
+  box-shadow: 0rpx 3rpx 5rpx 1rpx rgba(0,0,0,0.16), inset 0rpx 3rpx 5rpx 1rpx rgba(0,0,0,0.16);
+}

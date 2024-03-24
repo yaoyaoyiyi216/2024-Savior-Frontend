@@ -1,0 +1,53 @@
+.body {
+  background-image: url(@/assets/pictures/login/background.png);
+  width: 100vw;
+  height: 100vh;
+  font-family: 'Segoe UI';
+}
+
+.email {
+  position: absolute;
+  left: 208px;
+  top: 179px;
+  width: 250px;
+  height: 25px;
+  background-color: #fff;
+  box-shadow: 0px 2px 3px 1px rgba(0, 0, 0, 0.16), inset 0px 2px 3px 1px rgba(0, 0, 0, 0.16);
+  border-radius: 7px 7px 7px 7px;
+
+
+}
+
+.password {
+  position: absolute;
+  left: 208px;
+  top: 220px;
+  width: 250px;
+  height: 25px;
+  background-color: #fff;
+  box-shadow: 0px 2px 3px 1px rgba(0, 0, 0, 0.16), inset 0px 2px 3px 1px rgba(0, 0, 0, 0.16);
+  border-radius: 7px 7px 7px 7px;
+
+}
+
+
+.login {
+  position: absolute;
+  left: 390px;
+  top: 260px;
+  width: 60px;
+  height: 20px;
+  font-size: 9px;
+  box-shadow: 0px 2px 3px 1px rgba(0, 0, 0, 0.16), inset 0px 2px 3px 1px rgba(0, 0, 0, 0.16);
+  border-radius: 7px 7px 7px 7px;
+
+}
+
+.occlusion {
+  position: absolute;
+  top: 292px;
+  left: 270px;
+  width: 170px;
+  color: transparent;
+  background-color: #bbe2ab;
+}
