@@ -15,7 +15,8 @@ function Shop() {
      index === 1 ? getStopPlants :
      getStopBuildings
     )().then(res => {
-      setData(Array.isArray(res.data) ? res.data : [])
+      const filed = index === 0 ? 'Animinals' : index === 1 ? 'plants' : 'buildings'
+      setData(Array.isArray(res.data[filed]) ? res.data[filed] : [])
     }).catch(err => {
       console.log(err)
       setData([])
@@ -62,15 +63,9 @@ function Shop() {
         {
           active !== 3 &&
           <View className='item-box'>
-            { data && data.length > 0 && data.map((item, index) => {
-              return (
-                <Item 
-                  key={index} 
-                  imageUrl={require(`@/assets/pictures/all/${item.name}.png`)} 
-                  price={item.price === 0 ? '0' : (item.price || '∞')}
-                />
-              )
-            })}
+            { data && data.length > 0 && data.map((item, index) => (
+              <Item key={index} item={item} active={active}/>
+            ))}
           </View>
         }
       </View>

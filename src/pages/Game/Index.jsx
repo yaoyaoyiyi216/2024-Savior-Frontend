@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react'
 import Taro from '@tarojs/taro';
-import { View, Image } from '@tarojs/components';
+import { View, Image, Button } from '@tarojs/components';
 import { Modal } from '@/components';
 import './index.css'
+import { gameSuccess } from '../../apis/game';
 
 const Game = () => {
   // 卡片数据 matched 是否匹配成功; flipped 是否翻转
@@ -152,8 +153,36 @@ const Game = () => {
   }
   // 收下能量
   const acceptEnergy = () => {
-    // to do others
-    
+    if (isSuccess) {
+      gameSuccess({
+        isSuccess: true,
+      })
+        .then(res => {
+          if (res.code === 10000) {
+            Taro.showToast({
+              title: '收下能量成功！',
+              icon: 'none'
+            })
+            setTimeout(() => {
+              Taro.navigateTo({
+                url: '/pages/Home/Index'
+              })
+            }, 500)
+          } else {
+            Taro.showToast({
+              title: res.message || "收下能量失败！",
+              icon: "none"
+            })
+          }
+        }).catch(err => {
+          console.log(err)
+        })
+    } else {
+      // 如果游戏失败，则直接跳转到主页面
+      Taro.navigateTo({
+        url: '/pages/Home/Index'
+      });
+    }
     setVisible(false)
   }
 
@@ -249,6 +278,7 @@ const Game = () => {
               <View className="energy-box">
                 <View className="energy-icon"></View>
                 <View className="energy-count">× { '1k' }</View>
+                  
               </View>
               <View className="success-icon1"></View>
               <View className="success-icon2"></View>

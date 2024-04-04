@@ -1,102 +1,121 @@
 import Taro from '@tarojs/taro';
 import { useState, useEffect } from 'react';
 import { View, Text, Image } from '@tarojs/components';
-import Continent from './components/Continent';
 import ImageButton from './components/ImageButton';
-import More from './components/More';
-import { SubMenu } from '@/components'
+import { SubMenu } from '@/components';
+import { getGlobalData, setGlobalData } from '@/config/data';
+import { getPlanetInfo } from '@/apis/home';
+import { utils } from '@/config/utils'
 
 import './Home.css'
 
 
 function Home() {
-  const [username, setUsername] = useState('');
-  const [totalEnergy, setTotalEnergy] = useState(1000);
-  const [remainingEnergy, setRemainingEnergy] = useState(1000);
+  // 全局星球信息
+  const [starInfo, setStarInfo] = useState(getGlobalData('starInfo'));
+  // 大陆信息列表
+  const [continentList, setContinentList] = useState([
+    { id: 1, name: "西伦瑞亚", cleanrate: 0, status: true }, // 森林
+    { id: 2, name: "米尔勒拉", cleanrate: 0, status: false }, // 山地
+    { id: 3, name: "乌兰宇蒂", cleanrate: 0, status: false }, // 草原
+    { id: 4, name: "碦拉玛干", cleanrate: 0, status: false }, // 沙漠
+    { id: 5, name: "云格雷诺", cleanrate: 0, status: false }, // 冰原
+  ])
+  // ======== 侧栏 ========
   const [isOpen, setIsOpen] = useState(false)
-
   const toggleMore = () => {
     setIsOpen(!isOpen)
   }
-  // useEffect(() => {
-  //   fetchData();
-  // }, []);
-
-  // const fetchData = async () => {
-  //   try {
-  //     const response = await fetch('接口');
-  //     const data = await response.json();
-  //     setUsername(data.username);
-  //     setTotalEnergy(data.allEnergy);
-  //     setRemainingEnergy(data.remainingEnergy);
-  //   } catch (error) {
-  //     console.error('Error:', error);
+  // 获取星球基本信息
+  const getStarInfo = () => {
+  //   if (!starInfo.starName) {
+  //     Taro.showToast({
+  //       title: "星球未命名",
+  //       icon: "error",
+  //     })
+  //     return ;
   //   }
-  // };
-  const images1 = {
-    state1: require('@/assets/pictures/home/1.1.png'),
-    // state2: require('@/assets/pictures/home/image2.png'),
-  };
+    getPlanetInfo({
+      planetname: starInfo.starName
+    }).then(res => {
+      if (res.code === 10000) {
+        const { planet = {} } = res.data
+        const _starInfo = Object.assign({}, starInfo, planet || {}, {
+          starName: planet?.name || ''
+        })
+        // 给大陆的列表赋值
+        if (
+          Array.isArray(planet?.Mainlandinformation?.mainlands) && 
+          planet?.Mainlandinformation?.mainlands?.length
+        ) {
+          setContinentList(planet?.Mainlandinformation?.mainlands)
+        };
+        setStarInfo(_starInfo)
+        setGlobalData('starInfo', _starInfo)
+        
+        if (_starInfo.token) {
+          // 将token存到本地
+          Taro.setStorageSync('token', _starInfo.token)
+          // 将token存到全局数据中
+          setGlobalData('token', _starInfo.token)
+        }
+      } else {
+        Taro.showToast({
+          title: res.message || '请求失败！',
+          icon: "none"
+        })
+      }
+    }).catch(err => {
+      console.log(err)
+    })
+  }
+
+  // 点击大陆跳转详情
+  const toDetail = (item => {
+    if (!item.status) {
+      Taro.showToast({
+        title: "该大陆未解锁！",
+        icon: "none"
+      })
+      return false;
+    }
+    Taro.navigateTo({
+      url: `/pages/Continent/Index?item=${JSON.stringify(item)}`,
+    })
+  })
+
+  useEffect(() => {
+    getStarInfo();
+  }, [])
+
   return (
     <View className='body'>
       <View className='userinfo'>
-        <Image
-          className='planet'
-          src={require('@/assets/pictures/home/planet.png')}></Image>
-        <Text>我的星球名 : {username}</Text>
-
-
+        <Image className='planet' src={require('@/assets/pictures/home/planet.png')}></Image>
+        <Text>我的星球名 : {starInfo.starName}</Text>
       </View>
-      <View>
+      <View className="energy-box">
         <View className='totalenergy'>
-          <Image
-            className='energy'
-            src={require('@/assets/pictures/home/energy.png')}></Image>
+          <Image className='energy' src={require('@/assets/pictures/home/energy.png')}></Image>
           <Text>总能量值:</Text>
-          <View
-            style={{
-              'width': '49rpx',
-              'height': '17rpx',
-              'background': '#B5F0AE',
-              'boxShadow': '0rpx 3rpx 5rpx 1rpx rgba(0,0,0,0.16), inset 0rpx 3rpx 5rpx 1rpx rgba(0,0,0,0.16)',
-              'opacity': '0.5',
-              'borderRadius':'2em',
-              'marginLeft':'3.2em',
-              'textAlign':'center'
-            }}>{allEnergy}</View>
+          <View className="energy-text">{starInfo.allenergy || 0}k</View>
         </View>
         <View className='remainingenergy'>
-          <Image
-            className='energy'
-            src={require('@/assets/pictures/home/energy.png')}></Image>
+          <Image className='energy' src={require('@/assets/pictures/home/energy.png')}></Image>
           <Text>剩余能量值:</Text>
-          <View
-            style={{
-              'width': '49rpx',
-              'height': '17rpx',
-              'background': '#B5F0AE',
-              'boxShadow': '0rpx 3rpx 5rpx 1rpx rgba(0,0,0,0.16), inset 0rpx 3rpx 5rpx 1rpx rgba(0,0,0,0.16)',
-              'opacity': '0.5',
-              'borderRadius': '2em',
-              'marginLeft': '3.2em',
-              'textAlign': 'center'
-            }}>{remainingEnergy}</View>
+          <View className="energy-text">{starInfo.restenergy || 0}k</View>
         </View>
       </View>
       <View className='main'>
-        <Continent
-          images={images1}
-          state="state1"
-          onClick={() => { }}
-          navigateTo="/pages/Continent/Index"
-          initialImage={require('@/assets/pictures/home/1.1.png')}
-          className='continent1'
-        />
-        <Continent className='continent2' />
-        <Continent className='continent3' />
-        <Continent className='continent4' />
-        <Continent className='continent5' />
-
+        {continentList.map((item, index) => (
+          <View 
+            className={`continent-item continent-item-${item.id}`}
+            onClick={() => toDetail(item)}
+            key={index}
+          >
+            <Image src={require(`@/assets/pictures/home/${item.id}.${utils.handleStarStatus(item.status, item.cleanrate)}.png`)}/>
+          </View>
+        ))}
       </View>
       <View className='navibar'>
         <ImageButton src={require('@/assets/pictures/home/shop.png')}

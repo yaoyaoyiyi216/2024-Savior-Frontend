@@ -14,7 +14,7 @@
   background-color: #fff;
   box-shadow: 0px 2px 3px 1px rgba(0, 0, 0, 0.16), inset 0px 2px 3px 1px rgba(0, 0, 0, 0.16);
   border-radius: 7px 7px 7px 7px;
-color:lightgrey
+  padding-left: 1vw;
 
 
 }
@@ -28,7 +28,7 @@ color:lightgrey
   background-color: #fff;
   box-shadow: 0px 2px 3px 1px rgba(0, 0, 0, 0.16), inset 0px 2px 3px 1px rgba(0, 0, 0, 0.16);
   border-radius: 7px 7px 7px 7px;
-
+padding-left: 1vw;
 }
 
 .getverificationCode {
@@ -125,6 +125,36 @@ color:lightgrey
   transform: translateX(-50%);
   width: 120px;
   height: 150px;
-  
+}
+/* 确认密码弹窗 */
+/* .set-pwd-modal {
 
+} */
+.set-pwd-modal .modal-content {
+  background: #F6FEEA;
+}
+.set-pwd-modal .set-pwd-content .title {
+  font-size: 16rpx;
+  color: #707070;
+}
+.set-pwd-modal .set-pwd-content .input-item {
+  width: 283rpx;
+  height: 37rpx;
+  margin: 20rpx auto;
+  display: flex;
+  justify-content: space-between;
+}
+.set-pwd-modal .set-pwd-content .input-item input {
+  /* background: #BBE2AB; */
+  border-radius: 10rpx;
+  flex: 1;
+  height: 100%;
+  padding: 0 10rpx;
+  box-sizing: border-box;
+  border: 1rpx solid #707070;
+}
+.set-pwd-modal .modal-footer .footer-btn {
+  width: 55rpx;
+  height: 21rpx;
+  background: #fff;
 }

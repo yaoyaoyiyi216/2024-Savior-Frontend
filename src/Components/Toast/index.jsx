@@ -1,4 +1,4 @@
-/* 提示组件 */
+/*提示*/
 import Taro from '@tarojs/taro';
 import { useState, useEffect } from 'react';
 import { View, Image } from '@tarojs/components';

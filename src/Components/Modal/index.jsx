@@ -6,7 +6,7 @@ import './index.css'
 
 export default function SubMenu(props) {
   const {
-    className = "", // 额外的className
+    className = "",
     visible = false, // 是否显示
     title = "", // 弹窗标题
     footerText = "确认", // 底部按钮文字

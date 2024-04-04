@@ -4,7 +4,7 @@ import { View, Button } from '@tarojs/components'
 
 function SignupButton() {
   const handleClick = () => {
-    Taro.navigateTo({
+    Taro.redirectTo({
       url: '/pages/Signup/Index'
     })
   }

@@ -1,39 +1,114 @@
 .body {
   position: relative;
   background: url('@/assets/pictures/home/background.png') no-repeat;
-  background-size: cover;
+  background-size: 150%;
+  background-position: -20vw -20vh;
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
 }
-
-.planet {
+.body .userinfo {
+  width: max-content;
+  z-index: 10;
+}
+.userinfo .planet {
   width: 10vw;
   height: 19vh;
   vertical-align: middle;
   margin-left: 5vw;
 }
 
-.energy {
-  width: 2vw;
-  height: 4vh;
-  vertical-align: middle;
-
-}
-
-[class$='energy'] {
-  margin: 3vh;
-  margin-left: 6vh;
-}
-
-.navibar {
+.body .navibar {
   display: flex;
   flex-direction: row;
   align-items: center;
   position: absolute;
   left: 60vw;
   top: 0;
+  z-index: 30;
 }
 
+.body .sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 27vh;
+  left: 90vw;
+  z-index: 10;
+}
+.body .energy-box {
+  position: absolute;
+  left: 1vw;
+  top: 20vh;
+  z-index: 10;
+}
+.energy-box .energy {
+  width: 2vw;
+  height: 4vh;
+  vertical-align: middle;
+}
+.energy-box .energy-text {
+  width: 49rpx;
+  height: 17rpx;
+  background: #B5F0AE;
+  box-shadow: 0rpx 3rpx 5rpx 1rpx rgba(0,0,0,0.16), inset 0rpx 3rpx 5rpx 1rpx rgba(0,0,0,0.16);
+  opacity: 0.5;
+  border-radius:2em;
+  margin-left:3.2em;
+  text-align:center;
+}
+
+[class$='energy'] {
+  margin: 3vh 3vh 3vh 6vh;
+  margin-left: 6vh;
+}
+
+.body .main {
+  position: relative;
+}
+.body .main .continent-item {
+  position: absolute;
+}
+.body .main .continent-item image {
+  width: 100%;
+  height: 100%;
+}
+.main .continent-item-1 {
+  width: 137rpx;
+  height: 132rpx;
+  top: 18vh;
+  left: 50%;
+  transform: translate(-50%);
+}
+.main .continent-item-2 {
+  width: 136rpx;
+  height: 132rpx;
+  left: 20vw;
+  top: 35vh;
+}
+.main .continent-item-3 {
+  width: 132rpx;
+  height: 96rpx;
+  right: 20vw;
+  top: 40vh;
+}
+.main .continent-item-4 {
+  width: 149rpx;
+  height: 84rpx;
+  right: 15vw;
+  top: 5vh;
+}
+.main .continent-item-5 {
+  width: 119rpx;
+  height: 97rpx;
+  left: 25vw;
+  top: 0;
+}
+
+
+
+/* ============= 分割线 ============= */
 .navi-item {
   flex: 1;
   width: 5vw;
@@ -47,15 +122,6 @@
   width: 5vw;
   height: 18vh;
   margin: 5vh;
-}
-
-.sidebar {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: absolute;
-  top: 27vh;
-  left: 90vw;
 }
 
 .continent1 {

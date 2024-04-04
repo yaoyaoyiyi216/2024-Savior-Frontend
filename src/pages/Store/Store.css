@@ -107,7 +107,13 @@
 }
 .building-item image {
   width: 100%;
-  height: 114rpx;
+  height: 100rpx;
+}
+.building-item .building-name {
+  width: 100%;
+  text-align: center;
+  margin-top: 5rpx;
+  font-size: 14rpx;
 }
 .building-item .building-btn {
   width: 75rpx;

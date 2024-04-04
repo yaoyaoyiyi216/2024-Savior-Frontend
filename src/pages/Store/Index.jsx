@@ -9,10 +9,11 @@ import { getStoreAniminial, getStorePlants } from '@/apis/store'
 function Store() {
   const [active, setActive] = useState(0);
   const [data, setData] = useState(null)
-  
+
   const getData = (index) => {
     (index === 0 ? getStoreAniminial : getStorePlants)().then(res => {
-      setData(Array.isArray(res.data) ? res.data : [])
+      const filed = index === 0 ? 'animinals' : 'plants'
+      setData(Array.isArray(res.data[filed]) ? res.data[filed] : [])
     }).catch(err => {
       console.log(err)
       setData([])
@@ -27,7 +28,7 @@ function Store() {
 
   useEffect(() => {
     getData(active);
-  }, []); 
+  }, []);
 
   return (
     <View className='shop'>
@@ -48,18 +49,16 @@ function Store() {
           className={`header-item ${active === 2 ? 'active' : ''}`}
           onClick={() => handleClick(2)}
         />
-        
+
       </View>
       <View className='main'>
-        { active === 2 && <Building /> }
+        {active === 2 && <Building />}
         {
-          active !== 2 && 
+          active !== 2 &&
           <View className='item-box'>
-            { data && data.length > 0 && data.map((item, index) => {
-              return (
-                <Item imageUrl={require(`@/assets/pictures/all/${item.name}.png`)} amount={item.number}/>
-              )
-            })}
+            {data && data.length > 0 && data.map((item, index) => (
+              <Item item={item} key={index} />
+            ))}
           </View>
         }
       </View>

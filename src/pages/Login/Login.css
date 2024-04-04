@@ -14,7 +14,7 @@
   background-color: #fff;
   box-shadow: 0px 2px 3px 1px rgba(0, 0, 0, 0.16), inset 0px 2px 3px 1px rgba(0, 0, 0, 0.16);
   border-radius: 7px 7px 7px 7px;
-
+  padding-left: 1vw;
 
 }
 
@@ -27,7 +27,7 @@
   background-color: #fff;
   box-shadow: 0px 2px 3px 1px rgba(0, 0, 0, 0.16), inset 0px 2px 3px 1px rgba(0, 0, 0, 0.16);
   border-radius: 7px 7px 7px 7px;
-
+  padding-left: 1vw;
 }
 
 
@@ -40,7 +40,16 @@
   font-size: 9px;
   box-shadow: 0px 2px 3px 1px rgba(0, 0, 0, 0.16), inset 0px 2px 3px 1px rgba(0, 0, 0, 0.16);
   border-radius: 7px 7px 7px 7px;
+}
 
+.forget-pwd-btn {
+  position: absolute;
+  left: 210px;
+  top: 265px;
+  width: 60px;
+  height: 20px;
+  font-size: 9px;
+  color: #5BADFF;
 }
 
 .occlusion {
@@ -50,4 +59,85 @@
   width: 170px;
   color: transparent;
   background-color: #bbe2ab;
+}
+
+/* 忘记密码弹窗 */
+/* .forget-pwd-modal {
+} */
+.forget-pwd-modal .modal-header {
+  font-size: 20rpx;
+  margin-top: 20rpx;
+}
+
+.forget-pwd-modal .modal-content {
+  background: #F6FEEA;
+}
+
+.forget-content {
+  margin-top: 40rpx;
+  position: relative;
+}
+
+.forget-content .back-btn {
+  position: absolute;
+  top: -63rpx;
+  width: 23rpx;
+  height: 21rpx;
+  background: url(@/assets/pictures/back2.png) no-repeat center center;
+  background-size: 100% 100%;
+}
+
+.forget-content .input-item {
+  width: 283rpx;
+  height: 37rpx;
+  margin: 20rpx auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.forget-content .input-item input {
+  background: #BBE2AB;
+  border-radius: 10rpx;
+  flex: 1;
+  height: 100%;
+  padding: 0 10rpx;
+  box-sizing: border-box;
+}
+
+/* .forget-content .input-item-code {
+
+} */
+.forget-content .input-item-code .send-code-btn {
+  margin-left: 30rpx;
+  width: 87rpx;
+  background: #BBE2AB;
+  border-radius: 10rpx;
+  font-size: 14rpx;
+  white-space: nowrap;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.forget-content .bottom-btn-box {
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.bottom-btn-box .bottom-btn {
+  width: 73rpx;
+  height: 25rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 25rpx;
+  color: #707070;
+}
+
+.step-2 .bottom-btn-box .bottom-btn {
+  background-color: #fff;
+  box-shadow: 0px 2px 3px 1px rgba(0, 0, 0, 0.16), inset 0px 2px 3px 1px rgba(0, 0, 0, 0.16);
 }

@@ -1,25 +1,29 @@
-import ajax from "@/config/axios.config.js";
+import fetch from '@/config/fetch'
 // 登录
 export const login = (data = {}) => {
-  return ajax({
-    type: "post",
-    url: '/login',
+  return fetch('/login', {
+    method: "post",
     data: data
   })
 }
-// 获取验证码
+// 获取验证码 
 export const loginRegettestcode = (data = {}) => {
-  return ajax({
-    type: "post",
-    url: '/login/regettestcode',
+  return fetch('/login/regettestcode', {
+    method: "post",
     data: data
   })
 }
 // 验证验证码
 export const loginNext = (data = {}) => {
-  return ajax({
-    type: "post",
-    url: '/login/next',
+  return fetch('/login/next', {
+    method: "post",
+    data: data
+  })
+}
+// 重新设置密码
+export const resetpassword = (data = {}) => {
+  return fetch('/login/resetpassword', {
+    method: "post",
     data: data
   })
 }

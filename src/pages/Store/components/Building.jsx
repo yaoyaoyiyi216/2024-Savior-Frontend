@@ -5,7 +5,7 @@ import { getStoreBuildings, upStoreBuildings } from '@/apis/store';
 
 export default function Building() {
 
-  // 建筑物列表 (接口上线把这个默认的改成空数组)
+  // 建筑物列表 
   const [buildingData, setBuildingData] = useState([
     // { id: 0, upgrade: 0, name: '太阳能建筑' },
     // { id: 1, upgrade: 0, name: '风力发电站' },
@@ -14,8 +14,8 @@ export default function Building() {
   ]);
   // 获取建筑物列表
   const getBuildingList = () => {
-    getStoreBuildings('http://127.0.0.1:4523/m1/3942934-0-default/home/buildings').then(res => {
-      setBuildingData(Array.isArray(res.data) ? res.data : [])
+    getStoreBuildings('/home/buildings').then(res => {
+      setBuildingData(Array.isArray(res.data.buildings) ? res.data.buildings : [])
     }).catch(err => {
       console.log(err)
     })
@@ -45,7 +45,7 @@ export default function Building() {
       console.log('回答正确')
       setIsError(false)
       upStoreBuildings({
-        string: buildingData[activeIndex].name
+        goodbuildingname: buildingData[activeIndex].name
       }).then(res => {
         
         if (res.code === 10000) {
@@ -103,7 +103,8 @@ export default function Building() {
       <View className="building-group">
         {buildingData.map((item, index) => (
           <View className="building-item" onClick={() => openUpgrade(item, index)} key={index}>
-            <Image src={require(`@/assets/pictures/all/${item.name}.png`)}></Image>
+            <Image src={item.url}></Image>
+            <View class="building-name">{item.name}</View>
             <View className={`building-btn ${item.upgrade ? 'is-upgrade' : ''}`}>
               {item.upgrade ? '已升级' : '未升级'}
             </View>
